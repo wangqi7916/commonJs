@@ -6,15 +6,159 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script src="dist/main.js"></script>
+  <!-- <script src="dist/main.js"></script> -->
+  <script src="src/defineProoerty.js"></script>
 </head>
 
 <body>
+  <div id="main" style="height: 50px;">1</div>
+  <div id="cancel" style="height: 50px;">取消</div>
   <script>
-    console.log($.dateFormat("YYYY-mm-dd HH:MM", new Date()))
-    console.log($.checkMail('1191923306@qq.com'))
-    $.setCookie('wangqi', '28')
-    $.clearCookie('wangqi')
+    // console.log($.dateFormat("YYYY-mm-dd HH:MM", new Date()))
+    // console.log($.checkMail('1191923306@qq.com'))
+    // $.setCookie('wangqi', '28')
+    // $.clearCookie('wangqi')
+    // console.log($.getUrl("http://www.baidu.com?id=1&name=张三&uid=12345654321&type=1,2,3"))
+    // $.checkPwd('?absn1234')
+    // var dom = document.getElementById('main')
+    // var domClick = dom.onclick = function() {
+    //   console.log('1111')
+    // }
+    // console.log($.debounce(domClick, 1000, false))
+    // function handle() {
+    //   console.log(Math.random())
+    // }
+    // window.addEventListener('scroll', $.debounce(handle, 1000));
+
+    // Function.prototype.myCall = function (context) {
+    //   var context = context || window
+    //   // 给 context 添加一个属性
+    //   // getValue.call(a, 'yck', '24') => a.fn = getValue
+    //   context.fn = this
+    //   // 将 context 后面的参数取出来
+    //   var args = [...arguments].slice(1)
+    //   // getValue.call(a, 'yck', '24') => a.fn('yck', '24')
+    //   var result = context.fn(...args)
+    //   // 删除 fn
+    //   delete context.fn
+    //   return result
+    // }
+    
+    // 创建Promise对象
+    // const p = new Promise((resolve, reject) => { // 执行器函数
+    //   // 异步执行
+    //   setTimeout(() => {
+    //     const time = Date.now()
+    //     resolve('成功数据'+ time)
+    //   }, 100)
+    // })
+    // p.then(
+    //   value => { // 接收成功的value
+    //     console.log('成功回调1' + value)
+    //   },
+    //   reason => { // 接收成功的reason
+    //     console.log('失败回调1' + reason)
+    //   }
+    // )
+    // p.then(
+    //   value => { // 接收成功的value
+    //     console.log('成功回调2' + value)
+    //   },
+    //   reason => { // 接收成功的reason
+    //     console.log('失败回调2' + reason)
+    //   }
+    // )
+    // const p1 = Promise.resolve(2)
+    // const p2 = Promise.resolve(Promise.resolve(3))
+    // const p3 = Promise.resolve(Promise.reject(4))
+    // const p4 = new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve(4)
+    //   }, 1000)
+    // })
+    // const p5 = Promise.reject(5)
+    // const pAll = Promise.all([p1, p2])
+    // const pRace = Promise.race([p4, p5, p1, p2, p3])
+    // pAll.then(
+    //   value => {console.log(value)},
+    //   reason => {console.log(reason)},
+    // )
+
+    // const p6 = Promise.resolveDelay(66, 2000)
+    // const p7 = Promise.rejectDelay(77, 2000)
+    // p6.then(value => {console.log(value)})
+    // p7.catch(reason => {console.log(reason)})
+
+    // console.log($.flattenDeep([1, [[2], [3, [4]], 5]]))
+
+    // let count = 1;
+    // let container = document.getElementById('main');
+    // let cancel = document.getElementById('cancel')
+    // function updateCount() {
+    //   container.innerHTML = count++;
+    //   return count;
+    // }
+    // let action = $.throttleNew(updateCount)
+    // container.addEventListener('mousemove', action, true)
+    // cancel.onclick = function() {
+    //   count = 1
+    //   container.innerHTML = 1
+    //   action.cancel()
+    // }
+    // var obj = {
+    //   name: 'wq',
+    //   color: ['pink', 'red'],
+    //   data: {
+    //     nowDate: '1111'
+    //   }
+    // }
+    // var newObj = {}
+    // console.log($.deepCopy(newObj, obj))
+    
+    // var objH = {
+    //   name: '2222'
+    // }
+
+    
+    // $.setDefineProperty(objH, 'age')
+    // objH.age = 20
+    // console.log(objH.age)
+
+    // var obj = {
+    //   name: 'sslsl'
+    // }
+    
+    // console.log($.setProxy(obj).age)
+    // var obj = {
+    //   name: 'wq',
+    //   color: ['pink', 'red'],
+    //   data: {
+    //     nowDate: '1111'
+    //   },
+    //   getName: function() {
+    //     console.log(1111)
+    //   }
+    // }
+
+    // console.log(eval(obj.getName))
+    // var newObj = {}
+    // $.deepCopy(newObj, obj)
+    // console.log(newObj)
+
+    let vm = new Watch({
+      data: {
+        a: 0
+      },
+      watch: {
+        a(oldVal, newVal) {
+          console.log(oldVal, newVal)
+        }
+      }
+    })
+
+    setTimeout(function() {
+      vm.a = 1
+    }, 1000)
   </script>
 </body>
 
